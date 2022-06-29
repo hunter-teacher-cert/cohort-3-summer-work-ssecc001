@@ -1,7 +1,7 @@
-* Last name:
-* First name:
-* Github username:
-
+* Last name: Seccafico
+* First name: Susie
+* Github username: ssecc001
+ 
 * Instructions:
 
 Fill out the top of this form, commit and push it back to GitHub.
