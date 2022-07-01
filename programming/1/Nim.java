@@ -12,7 +12,8 @@ public class Nim
     while(stones > 0 ){
       // prompt user for input : user taking turn
       System.out.println("Please enter a number from 1-3");
-      stonesTaken = in.nextInt(); //taking from the user I
+      stonesTaken = in.nextInt(); 
+      in. nextLine();//taking from the user I
     
       // caculate the number of stones remaining.
       //print
@@ -33,7 +34,7 @@ public class Nim
       //Math.random()(max - min +1) + min
       stones = stones - stonesTaken;
       System.out.println("The Computer took " + stonesTaken);
-      // caculate the numner of stones remaining.
+      // caculate the number of stones remaining.
       //print
       System.out.println("There are " + stones + " left");
       //check for the win
