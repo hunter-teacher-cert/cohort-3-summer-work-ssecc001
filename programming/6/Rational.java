@@ -1,7 +1,7 @@
 /**
  * Rational class by Team BangPi
- * First Last
- * collaborators: First Last, First Last
+ * Wayne Tobias
+ * collaborators: William L, Susie S, Alicia W
  */
 
 
@@ -10,16 +10,17 @@
    An instance of this class will represent a rational number (p/q s.t. p,q ints && q!=0),
    and facilitate mathematical operations with another instance of class Rational.
    Basic level (complete all):
-   - toString
-   - default constructor
-   - multiply
-   - divide
+   - default constructor x
+   - toString x
+   - multiply x
+   - divide x
    Intermediate level (complete Basic methods plus these methods):
    - floatValue
-   - overloaded constructor
+   - overloaded constructor x
    Advanced level (complete Basic + Intermediate + these methods):
    -
 */
+// the first big goal is to make an output that looks something like n/d
 
 
 public class Rational
@@ -31,10 +32,11 @@ public class Rational
 
   // default constructor (no parameters)
   // creates a new Rational with value 0/1
+  // the constructor gives stuff to the private values
   public Rational()
   {
     this._numerator = 0;
-    this._denominator =0;
+    this._denominator =1;
   }
 
 
@@ -43,8 +45,10 @@ public class Rational
   // if an invalid denominator is attempted, should print a message and set the number to 0/1
   public Rational( int n, int d )
   {
+    
     this._numerator = n;
     this._denominator = d;
+    // is this correct? yes! 
   }
 
 
@@ -52,14 +56,16 @@ public class Rational
   // returns a string representation of the rational number (formatting of your choice)
   public String toString()
   {
-    if (_denominator == 1){
-      String strRational = this.numerator;
-    }
-    else{
-    String strRational = this._numerator + "/" + this._denominator;
-    }
-    return strRational;
+
+    return this._numerator + "/" + this._denominator;
+    
+    //I think they want us to keep it as x/x format even if it evals to a whole number
+    //okay that makes sense!
+    // I am going to compress this down to just that return then for everyone!
+    
   }
+
+  // with the above 3 done we can look at a lot of the test cases
 
 
   // floatValue
@@ -67,8 +73,12 @@ public class Rational
   // uses the most precise floating point primitive
   public double floatValue()
   {
-    /* YOUR ELEGANT CODE HERE */
-    // mod?
+    // have turn the interigers into doubles
+    // we can do that by casting one or both of the ints in new doubles
+    double n = this._numerator;
+    double d = this._denominator;
+    
+    return n/d; 
   }
 
 
@@ -80,9 +90,10 @@ public class Rational
   // need not reduce
   public void multiply( Rational r )
   {
-    /* YOUR ELEGANT CODE HERE */
-    //this.numerator/this.denominator * 
-    Rational a = new Rational(a._numerator,)
+
+    // let's start with the numerator - short operation *= returns the product
+    this._numerator *= r._numerator; // numerators set to curent value times r._num
+    this._denominator *= r._denominator;
   }
 
 
@@ -90,7 +101,16 @@ public class Rational
   // same as multiply, except operation is division
   public void divide( Rational r )
   {
-    /* YOUR ELEGANT CODE HERE */
+    // t.n/t.d ÷ r.n/r.d = t.n/t.d × r.d/r.n
+    // switch denominator and numerator for division
+    this._numerator *= r._denominator;
+    this._denominator *= r._numerator;
+
+    
+    // we can't use straight divsion because it might ressult in a decimal so we have
+    // to use the whole silly math  thing of (A/B) / (C/D) is the same as
+    // (A/B) * (D/C)!
+    
   }
 
 }//end class
