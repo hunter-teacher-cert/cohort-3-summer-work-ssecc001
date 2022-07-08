@@ -1,85 +1,39 @@
 /**
- * Rational class by Team BangPi
- * First Last
- * collaborators: First Last, First Last
+ * class Driver
+ * tester class for class Rational
  */
 
-
-/**
-   class Rational
-   An instance of this class will represent a rational number (p/q s.t. p,q ints && q!=0),
-   and facilitate mathematical operations with another instance of class Rational.
-   Basic level (complete all):
-   - toString
-   - default constructor
-   - multiply
-   - divide
-   Intermediate level (complete Basic methods plus these methods):
-   - floatValue
-   - overloaded constructor
-   Advanced level (complete Basic + Intermediate + these methods):
-   -
-*/
-
-
-public class Rational
+public class Driver
 {
-  // Instance variables aka attributes for numerator and denominator
-  private int _numerator;
-  private int _denominator;
-
-
-  // default constructor (no parameters)
-  // creates a new Rational with value 0/1
-  public Rational()
+  public static void main( String[] args )
   {
-    /* YOUR ELEGANT CODE HERE */
-  }
-
-
-  // overloaded constructor
-  // takes 2 parameters, one for the numerator, one for the denominator
-  // if an invalid denominator is attempted, should print a message and set the number to 0/1
-  public Rational( int n, int d )
-  {
-    /* YOUR ELEGANT CODE HERE */
-  }
-
-
-  // toString
-  // returns a string representation of the rational number (formatting of your choice)
-  public String toString()
-  {
-    /* YOUR ELEGANT CODE HERE */
-  }
-
-
-  // floatValue
-  // returns floating point approximation of the number
-  // uses the most precise floating point primitive
-  public double floatValue()
-  {
-    /* YOUR ELEGANT CODE HERE */
-  }
-
-
-  // multiply
-  // takes a Rational parameter and multiplies it by this Rational
-  // does not return a value
-  // modifies this object
-  // does not modify input
-  // need not reduce
-  public void multiply( Rational r )
-  {
-    /* YOUR ELEGANT CODE HERE */
-  }
-
-
-  // divide
-  // same as multiply, except operation is division
-  public void divide( Rational r )
-  {
-    /* YOUR ELEGANT CODE HERE */
+    //cut/paste this leading comment bar down, one line at a time, as you test...
+    
+      Rational r = new Rational( 3, 7 );
+      Rational s = new Rational();
+      Rational t = new Rational( 8, 5 );
+      Rational u = new Rational( 1, 2 );
+      Rational v = new Rational( 2, 3 );
+      Rational w = new Rational( 8, 12 );
+      Rational x = new Rational( 8, 12 );
+      System.out.println("r: " + r );
+      System.out.println("s: " +  s );
+      System.out.println("t: " +  t );
+ 
+      System.out.println( r + " as a floating pt approximation: "
+      + r.floatValue() );
+      System.out.println( s + " as a floating pt approximation: "
+      + s.floatValue() );
+      System.out.println( t + " as a floating pt approximation: "
+      + t.floatValue() );
+      System.out.print( r + " * " + t + " = ");
+      r.multiply(t);
+      System.out.println(r);
+      System.out.print( r + " / " + t + " = ");
+      r.divide(t);
+      System.out.println(r);
+     /*~~~~~v~~~~~~~~~~down~goer~3~~~~~~~~~~~~~v~~~~~
+      ~~~~~|~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~|~~~~~*/
   }
 
 }//end class
