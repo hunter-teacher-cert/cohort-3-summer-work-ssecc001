@@ -33,8 +33,6 @@ import java.util.*;
    
 */
 
-
-
 public class Time {
     // Instance Variable(s)
     // You can change this if you want to use the alternate
@@ -71,8 +69,8 @@ public class Time {
     // Methods
 
     /**
-       returns a string representation of the time
-    ]
+       returns a string representation of the time**/
+  
     public String toString()
     {
       String strTime = this.hours + ":" + this.minutes + ":" + this.seconds;
@@ -178,31 +176,31 @@ public class Time {
       else if (this.hours < other.hours) {
         return -1;
       }
-      else {
-        
-        if (this.minutes > other.minutes) {
+      else 
+      {
+        if (this.minutes > other.minutes) 
+        {
           return 1;
         } 
-        else if (this.minutes < other.minutes) {
+        else if (this.minutes < other.minutes) 
+        {
           return -1;
         }
-        else {
-
-          if (this.seconds > other.seconds) {
+        else 
+        {
+          if (this.seconds > other.seconds) 
+          {
             return 1;
           }
-          else if (this.seconds < other.seconds) {
+          else if (this.seconds < other.seconds) 
+          {
             return -1;
           }
-          else {
+          else 
+          {
             return 0;
           }
-          
         }
-      
+      }
     }
-    
-
-    }  
-}
-  //end class
+}//end class

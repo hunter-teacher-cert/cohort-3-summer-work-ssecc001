@@ -33,8 +33,7 @@ public class Rational
   // creates a new Rational with value 0/1
   public Rational()
   {
-    this._numerator = 0;
-    this._denominator =0;
+    /* YOUR ELEGANT CODE HERE */
   }
 
 
@@ -43,8 +42,7 @@ public class Rational
   // if an invalid denominator is attempted, should print a message and set the number to 0/1
   public Rational( int n, int d )
   {
-    this._numerator = n;
-    this._denominator = d;
+    /* YOUR ELEGANT CODE HERE */
   }
 
 
@@ -52,13 +50,7 @@ public class Rational
   // returns a string representation of the rational number (formatting of your choice)
   public String toString()
   {
-    if (_denominator == 1){
-      String strRational = this.numerator;
-    }
-    else{
-    String strRational = this._numerator + "/" + this._denominator;
-    }
-    return strRational;
+    /* YOUR ELEGANT CODE HERE */
   }
 
 
@@ -68,7 +60,6 @@ public class Rational
   public double floatValue()
   {
     /* YOUR ELEGANT CODE HERE */
-    // mod?
   }
 
 
@@ -81,8 +72,6 @@ public class Rational
   public void multiply( Rational r )
   {
     /* YOUR ELEGANT CODE HERE */
-    //this.numerator/this.denominator * 
-    Rational a = new Rational(a._numerator,)
   }
 
 
