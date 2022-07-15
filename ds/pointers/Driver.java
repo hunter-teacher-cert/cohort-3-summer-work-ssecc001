@@ -5,7 +5,7 @@ public class Driver{
 
     public static void main(String[] args) {
 
-	// Fist:
+	// Fist: 
 	// Start here and trace through
 	// the code by hand until the comment
 	// that says stop tracing
