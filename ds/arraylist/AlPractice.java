@@ -134,8 +134,11 @@ public class AlPractice{
        ArrayList <Integer> zipList = new ArrayList <Integer>(ListA.size()*2);
 
     for (int i=0; i<ListA.size(); i++) {
+      for (int j=0; i<ListB.size(); i++){
         zipList.add(i,ListA.get(i));
-        zipList.add(2*i,ListB.get(i));
+        zipList.add(2*i,ListB.get(j));
+      }
+        
       }
     
     return zipList;//placeholder to compile.
