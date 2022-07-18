@@ -34,9 +34,9 @@ public class LinkedList{
   Adds a new node containing value to the front of the list.
   */
   public void add(String value){
-  Node addNode = new Node(value);
-  addNode.setNext(head);
-  head = addNode;
+    Node addNode = new Node (value);
+    addNode.setNext(head);
+    head = addNode;
 
   }
 
@@ -45,14 +45,16 @@ public class LinkedList{
   */
   public String get(int index){
     Node walker = head;
-    for (int i=0; i<=index & walker != null; i++){
-      if (i == index){
-        walker.getNext(index);
-        walker = walker.getData();
-      }     
-    }
-    return walker;
+    String result = "";
+    for (int i = 0; i< index; i++){
+      walker = walker.getNext();
+     
+   }
+    result+= walker;
+     
+    return result;
   }
+   
 
   /**
   Return a string representation of the list
@@ -61,17 +63,25 @@ public class LinkedList{
     String result = "";
     Node walker = head;
     while(walker != null){
-      
-      result = result + walker;
-    }
-     return result;
+    
+      result = result + walker.toString();
+      walker = walker.getNext();
+    } 
+    return result;
   }
 
   /**
   returns the number of elements in the list
   */
   public int size(){
-    return 0;
+    Node walker = head;
+    int counter = 0;
+    while (walker != null)
+    {
+      walker = walker.getNext();
+      counter ++;
+    }    
+    return counter;
   }
 
 
@@ -88,7 +98,13 @@ public class LinkedList{
   "a"-> "z" -> "b" -> "c" -> "d"
   */
   public void add(int index, String value){
-
+  Node insertNode = new Node(value);
+  Node walker = head;
+  for (int i = 0; i < index-1; i++){
+    walker = walker.getNext();  
+  }
+    insertNode.setNext(walker.getNext());
+    walker.setNext(insertNode);
   }
 
 
@@ -101,10 +117,17 @@ public class LinkedList{
   indexOf("d") would return 3 since "d" is at location 3.
   */
   public int indexOf(String value){
-    return 0;
-  }
-
-
+    Node walker = head;
+    int counter = 0;
+    while (walker != null){
+      if (walker.getData() == value){
+         return counter;
+      }
+      walker = walker.getNext();
+      counter ++;
+      }
+    return -1;
+    }
   /**
   This routine should create a new array that is the same
   size as the number of Nodes in the list.
@@ -112,7 +135,21 @@ public class LinkedList{
   the array.
   */
   public String[] toArray(){
-    return null;
+    Node walker = head;
+    int size = 0;
+    while (walker != null)
+    {
+      walker = walker.getNext();
+      size ++;
+    }    
+  
+    String[] result; 
+    result = new String[size];
+    for (int i = 0; i<result.length -1; i++ ){
+      result[i] = walker.getData();
+      walker = walker.getNext();
+    }
+    return result;
   }
 
 
