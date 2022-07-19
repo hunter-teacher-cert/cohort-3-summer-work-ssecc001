@@ -100,11 +100,18 @@ public class LinkedList{
   public void add(int index, String value){
   Node insertNode = new Node(value);
   Node walker = head;
-  for (int i = 0; i < index-1; i++){
+  if (index == 0){
+    add(value);
+    
+  }
+  else{
+    for (int i = 0; i < index-1; i++){
     walker = walker.getNext();  
   }
     insertNode.setNext(walker.getNext());
     walker.setNext(insertNode);
+  }
+  
   }
 
 
@@ -142,10 +149,10 @@ public class LinkedList{
       walker = walker.getNext();
       size ++;
     }    
-  
-    String[] result; 
+    walker = head;
+    String result[]; 
     result = new String[size];
-    for (int i = 0; i<result.length -1; i++ ){
+    for (int i = 0; i<result.length && walker !=null; i++ ){
       result[i] = walker.getData();
       walker = walker.getNext();
     }
