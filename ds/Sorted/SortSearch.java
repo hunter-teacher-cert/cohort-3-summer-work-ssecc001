@@ -55,7 +55,7 @@ public class SortSearch{
 
 
     /*
-      return the index of the smallest data idem from index start to the end
+      return the index of the smallest data item from index start to the end
       of the ArrayList. If there are multiple of the smallest value,
       return any of them.
       
@@ -64,23 +64,19 @@ public class SortSearch{
       if start was 2 (start at index 2, value 10) then it would return 3
       which is the index of the value 6 which is the index with the
       smallest value from start to end
-      On the otherh and, if start was 0, then the method would
+      On the other hand, if start was 0, then the method would
       return 1 since the value 3 is in index 1 and that is the smallest.
       
     */
+  //smallIndex = the LOCATION of the values
     public int findSmallestIndex(int start){
-      int smallIndex = start;
-      int smallValue = this.data.get(start);
-      for(int i = smallIndex; i <this.data.size(); i++){
-        if (this,data.get(i)<smallValue){
-          smallValue = this.data.get(i);
-          smallIndex = i;
-          
-        }
-        
-      }
-	
-	    return smallIndex;
+	int smallIndex = start;
+	for (int i = start; i< data.size(); i++){
+    if (data.get(i) < data.get(smallIndex)){
+      smallIndex = i;
+    }
+  }
+	return smallIndex;
     }
 
 
@@ -92,10 +88,20 @@ public class SortSearch{
        0 to the end of the ArrayList.
          For each index, find the smallest from that Location
 	 to the end of the array and swap it with that index.
-	 
+	 Array named data, index is i, traverse the array
        
     */
     public void sort(){
+      int smallIndex = 0;
+      int temp =0;
+      for (int i = 0; i < data.size(); i++){
+        smallIndex = findSmallestIndex(i);
+        // SWAP
+        temp = data.get(smallIndex);
+        data.set(smallIndex, data.get(i));
+        data.set(i,temp);
+        //}
+      }
 
 
     }
@@ -112,17 +118,41 @@ public class SortSearch{
        This algorithm works on any ArrayList.
     */
     public int linearSearch(int value){
-	
-	
-	return 0; // replace this return
+      for (int i=0; i<data.size(); i++){
+        if (value == data.get(i)){
+          return i;    
     }
+        return -1;
+  }
+	
+	 // replace this return
     
     /**
        Implement a binary search as specified by the comments
        
        This algorithm only works on sorted ArrayLists.
     */
-    public int binarySearch(int value){
+    // public int binarySearch(int value){
+    //   int low = 0;
+    //   int high = data.size();
+    //   int middle = (low + high)/2;
+    //   int currentIndex = 0;
+    //   int currentItem = data.get(currentIndex);
+    //   int result = -1;
+    //   while (low > high){
+    //     currentIndex = middle;
+    //     if (currentItem == value){
+    //       value = result;
+    //     }
+    //     else{
+    //       if (currentIndex > value){
+    //         high = currentIndex - 1;
+    //       }
+    //       else{
+    //         low = currentIndex + 1;
+    //       }
+    //     }
+
 
 	// create assign variables  representing the high, low and middle indices 
 	// while we're not done:
@@ -161,3 +191,15 @@ public class SortSearch{
 
     
 }
+
+
+// int small = -1;
+//       int temp = 0;
+//       for (int i = 0; i<data.size(); i++){
+//         for (int j = i + 1; j<data.size(); j++){
+//           small = i;
+//             if(this.data.get(j)<this.data.get(small)){
+//               temp = this.data.get(i);
+//               this.data.get(i) = this.data.get(j);
+//               this.data.get(j) = temp;
+            

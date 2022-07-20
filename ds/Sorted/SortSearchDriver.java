@@ -22,9 +22,13 @@ public class SortSearchDriver {
 	
 	// Uncomment these to test part 3
 
-	// System.out.println(ss);
-	// ss.sort();
-	// System.out.println(ss);
+	System.out.println(ss);
+	ss.sort();
+	System.out.println(ss);
+
+  System.out.println("Search");
+
+  System.out.println(ss.linearSearch(10));
 	
 
 
