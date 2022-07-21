@@ -33,7 +33,7 @@ public class SortSearch{
 	data = new ArrayList<Integer>();
 	r = new Random();
 	for (int i=0;i<15;i++){
-	    data.add(r.nextInt(20));
+	    data.add(r.nextInt(10000));
 	}
 	
     }
@@ -42,7 +42,7 @@ public class SortSearch{
 	data = new ArrayList<Integer>();
 	r = new Random();
 	for (int i=0;i<size;i++){
-	    data.add(r.nextInt(20));
+	    data.add(r.nextInt(10000));
 	}
 	
     }
@@ -121,9 +121,10 @@ public class SortSearch{
       for (int i=0; i<data.size(); i++){
         if (value == data.get(i)){
           return i;    
+        }
+      }
+      return -1;
     }
-        return -1;
-  }
 	
 	 // replace this return
     
@@ -132,26 +133,33 @@ public class SortSearch{
        
        This algorithm only works on sorted ArrayLists.
     */
-    // public int binarySearch(int value){
-    //   int low = 0;
-    //   int high = data.size();
-    //   int middle = (low + high)/2;
-    //   int currentIndex = 0;
-    //   int currentItem = data.get(currentIndex);
-    //   int result = -1;
-    //   while (low > high){
-    //     currentIndex = middle;
-    //     if (currentItem == value){
-    //       value = result;
-    //     }
-    //     else{
-    //       if (currentIndex > value){
-    //         high = currentIndex - 1;
-    //       }
-    //       else{
-    //         low = currentIndex + 1;
-    //       }
-    //     }
+    public int binarySearch(int value){
+      int low = 0;
+      int high = data.size()-1;
+      int middle = (low + high)/2;
+      int currentIndex = 0;
+      int currentItem = data.get(currentIndex);
+      int result = -1;
+      while (low <= high){
+        middle = (low + high)/2;
+        currentIndex = middle;
+        currentItem = data.get(currentIndex);
+        if (currentItem == value){
+          return currentIndex;
+        }
+        else{
+          if (currentItem > value){
+            high = currentIndex - 1;
+            // Also change middle
+          }
+          else{
+            low = currentIndex + 1;
+            // Also change middle
+          }
+        }  
+      }
+      return -1;
+    }
 
 
 	// create assign variables  representing the high, low and middle indices 
@@ -159,22 +167,34 @@ public class SortSearch{
 	//   if the item is at data.get(middle), return middle
 	//   otherwise, update high, low, and middle
 
-	return 0;
+	// return 0;
 	    
-    }
+ //    }
     
     /**
        Implement a RECURSIVE binary search as specified by the comments
        
        This algorithm only works on sorted ArrayLists.
     */
-
+//the parameters in binarySearchRecursive tell us that when running the program we have to include values in the driver for value, lowIndex, & highIndex 
     public int binarySearchRecursive(int value, int lowIndex, int highIndex){
-
-	// refer to class discussion
-	
-	return 0;
-	    
+      int middleIndex = (lowIndex + highIndex)/2;
+      // Base case 1: Don't find it
+      if (lowIndex > highIndex){//ending condition
+        return -1;
+      }
+      // Base case 2: You found it
+      else if (data.get(middleIndex) == value){
+        return middleIndex;
+      }
+      // Recursive case 1: Value is below middle
+      else if (data.get(middleIndex) > value ){
+        return binarySearchRecursive(value, lowIndex, middleIndex -1);//the new high index (because it's a binarySearch). -1 still captures all (because we already checked the middleIndex ==value) 
+      }
+      // Recursive case 2: Value is above middle
+      else { //less than the value
+        return binarySearchRecursive(value, middleIndex +1, highIndex);
+      }
     }
     
 	
